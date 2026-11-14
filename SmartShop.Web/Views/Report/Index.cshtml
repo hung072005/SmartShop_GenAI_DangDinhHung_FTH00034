@@ -1,0 +1,36 @@
+﻿@model List<SmartShop.Web.Models.ReviewReportViewModel>
+@{
+    ViewData["Title"] = "Product Review Report";
+}
+<link rel="stylesheet" href="~/css/report.css" />
+
+<div class="report-container">
+    <h2 class="report-title">Smart Shop - Customer Review Report</h2>
+    <table class="report-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Product name</th>
+                <th>Total reviews</th>
+                <th>Positive</th>
+                <th>Negative</th>
+                <th>Neutral</th>
+                <th>Average rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.No</td>
+                    <td class="text-left">@item.ProductName</td>
+                    <td>@item.TotalReviews</td>
+                    <td>@item.Positive</td>
+                    <td>@item.Negative</td>
+                    <td>@item.Neutral</td>
+                    <td>@item.AverageRating.ToString("0.0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
